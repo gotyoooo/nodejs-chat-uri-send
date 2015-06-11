@@ -28,13 +28,13 @@ app.configure('development', function(){
 });
  
 server.listen(app.get('port'))
-/*
+
 // URI受け取り用
 app.get('/uri/:char', function (req, res) {
   console.log('respond char : ' + req.params.char);
   io.sockets.emit('message:receive', { message: req.params.char });
 });
-*/
+
 io.sockets.on('connection', function(socket) {
   socket.on('message:send', function(data) {
     io.sockets.emit('message:receive', { message: data.message });
