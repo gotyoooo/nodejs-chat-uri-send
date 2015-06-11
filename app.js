@@ -29,7 +29,8 @@ app.configure('development', function(){
  
 server.listen(app.get('port'))
 
-app.get('/:char', function (req, res) {
+// URI受け取り用
+app.get('/uri/:char', function (req, res) {
   console.log('respond char : ' + req.params.char);
   io.sockets.emit('message:receive', { message: req.params.char });
 });
